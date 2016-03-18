@@ -70,7 +70,7 @@ public class PostTweetJob extends Job {
         return RetryConstraint.createExponentialBackoff(runCount, 1000);
     }
     @Override
-    protected void onCancel() {
+    protected void onCancel(int cancelReason) {
         // Job has exceeded retry attempts or shouldReRunOnThrowable() has returned false.
     }
 }
